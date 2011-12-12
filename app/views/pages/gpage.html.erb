@@ -1,6 +1,6 @@
 <div id="game-info">
 	<% if !params[:param1].nil?
-	     @game = Game.find_by_id(params[:param1])
+	     @game = Game.find(params[:param1])
 	   end
 	%>
 	<div class="game-page-title"><%= if !@game.nil?
@@ -23,7 +23,7 @@
 	<div class="game-page-user-rating">
 		<% if !current_user.nil? && !@game.nil? %>
 			<%
-			  @ratings = Ratings.find(:all, :conditions => ['user_id LIKE ? AND game_id LIKE ?', current_user.id, @game.id])
+			  @ratings = Ratings.find(:all, :conditions => {:user_id => current_user.id, :game_id => @game.id})
 			  if @ratings.any?
 			%>
 			  <br/><%= " Your rating!" %><br/>
@@ -35,6 +35,7 @@
      			<%= submit_tag("Rate!") %>
     		  <% end %>
 			<% end %>
+			<font size="3"><%= @notice %></font>
 		<% end %>
 	</div>
 </div>

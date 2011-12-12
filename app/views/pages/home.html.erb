@@ -37,23 +37,23 @@
 <div id="main-top"> Just Out!
    <div id="main-top-first" class="main-details"><%= link_to @newest1.name, gpage_path(:param1 => @newest1) %>
    <%= link_to image_tag(@newest1.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest1) %>
-      <div class="main-rating"><span class="rating-font" ><%= @newest1.rating %></span>/10</div>
+      <div class="main-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @newest1.rating ) %></span>/10</div>
    </div>
    <div id="main-top-second" class="main-details"><%= link_to @newest2.name, gpage_path(:param1 => @newest2) %>
    <%= link_to image_tag(@newest2.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest2) %>
-      <div class="main-rating"><span class="rating-font" ><%= @newest2.rating %></span>/10</div>
+      <div class="main-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @newest2.rating ) %></span>/10</div>
    </div>
    <div id="main-top-third" class="main-details"><%= link_to @newest3.name, gpage_path(:param1 => @newest3) %>
    <%= link_to image_tag(@newest3.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest3) %>
-      <div class="main-rating"><span class="rating-font" ><%= @newest3.rating %></span>/10</div>
+      <div class="main-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @newest3.rating ) %></span>/10</div>
    </div>
    <div id="main-top-fourth" class="main-details"><%= link_to @newest4.name, gpage_path(:param1 => @newest4) %>
    <%= link_to image_tag(@newest4.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest4) %>
-      <div class="main-rating"><span class="rating-font" ><%= @newest4.rating %></span>/10</div>
+      <div class="main-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @newest4.rating ) %></span>/10</div>
    </div>
    <div id="main-top-fifth" class="main-details"><%= link_to @newest5.name, gpage_path(:param1 => @newest5) %>
    <%= link_to image_tag(@newest5.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest5) %>
-      <div class="main-rating"><span class="rating-font" ><%= @newest5.rating %></span>/10</div>
+      <div class="main-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @newest5.rating ) %></span>/10</div>
    </div>
 </div>
 <div id="main-bot"> Upcoming Releases!
@@ -81,27 +81,27 @@
 <div id="sidebar">Top Rated!
    <div id="side-first" class="sidebar-details">
    <%= link_to image_tag(@rated1.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated1) %>
-      <div class="sidebar-rating"><span class="rating-font" ><%= @rated1.rating %></span>/10</div>
+      <div class="sidebar-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @rated1.rating ) %></span>/10</div>
       <div class="sidebar-name">&nbsp;<%= link_to @rated1.name, gpage_path(:param1 => @rated1) %></div>
    </div>
    <div id="side-second" class="sidebar-details">
    <%= link_to image_tag(@rated2.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated2) %>
-      <div class="sidebar-rating"><span class="rating-font" ><%= @rated2.rating %></span>/10</div>
+      <div class="sidebar-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @rated2.rating ) %></span>/10</div>
       <div class="sidebar-name"><%= link_to @rated2.name, gpage_path(:param1 => @rated2) %></div>
    </div>
    <div id="side-third" class="sidebar-details">
    <%= link_to image_tag(@rated3.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated3) %>
-      <div class="sidebar-rating"><span class="rating-font" ><%= @rated3.rating %></span>/10</div>
+      <div class="sidebar-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @rated3.rating ) %></span>/10</div>
       <div class="sidebar-name"><%= link_to @rated3.name, gpage_path(:param1 => @rated3) %></div>
    </div>
    <div id="side-fourth" class="sidebar-details">
    <%= link_to image_tag(@rated4.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated4) %>
-      <div class="sidebar-rating"><span class="rating-font" ><%= @rated4.rating %></span>/10</div>
+      <div class="sidebar-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @rated4.rating ) %></span>/10</div>
       <div class="sidebar-name"><%= link_to @rated4.name, gpage_path(:param1 => @rated4) %></div>
    </div>
    <div id="side-fifth" class="sidebar-details">
    <%= link_to image_tag(@rated5.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated5) %>
-      <div class="sidebar-rating"><span class="rating-font" ><%= @rated5.rating %></span>/10</div>
+      <div class="sidebar-rating"><span class="rating-font" ><%= sprintf( "%0.01f", @rated5.rating ) %></span>/10</div>
       <div class="sidebar-name"><%= link_to @rated5.name, gpage_path(:param1 => @rated5) %></div>
    </div>
 </div>

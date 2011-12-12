@@ -9,8 +9,10 @@
       <%= text_field_tag(:param1) %>
       <%= submit_tag("Add Friend") %>
     <% end %>
+    <%= @notice %><br/>
     <table>
-    <% @friends = Friends.find(:all, :conditions => ['user_id LIKE ?', current_user.id]) %>
+    <% @friends = Friends.find(:all, :conditions => {:user_id => current_user.id})
+    #['user_id LIKE ?', current_user.id]) %>
     <% @friends.each do |friend| %>
     <% @use = User.find_by_id(friend.friend_id) %>
     	<tr>
