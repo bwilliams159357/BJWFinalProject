@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       #Create error message and re-render the signin
       flash.now[:error] = "Invalid email/password combination."
       @title = "Sign In"
+      @notice = "Invalid Credentials!"
       render 'new'
     else
       # Sign the user in and redirect to user's show page

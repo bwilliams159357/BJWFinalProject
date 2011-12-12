@@ -9,7 +9,7 @@
       <%= text_field_tag(:param1) %>
       <%= submit_tag("Add Friend") %>
     <% end %>
-    <%= @notice %><br/>
+    <font color="red"><%= @notice %></font><br/>
     <table>
     <% @friends = Friends.find(:all, :conditions => {:user_id => current_user.id})
     #['user_id LIKE ?', current_user.id]) %>

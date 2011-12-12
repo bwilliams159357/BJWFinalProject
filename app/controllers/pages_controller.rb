@@ -12,10 +12,10 @@ class PagesController < ApplicationController
       else
         if params[:priv].nil?
           current_user.update_attribute(:view, true)
-          @title = "Tried to Update to Public"
+          @title = "#{current_user.email} - Control Panel - Profile"
         else
           current_user.update_attribute(:view, false)
-          @title = "Tried to Update to Private"
+          @title = "#{current_user.email} - Control Panel - Profile"
         end
       end
     end
