@@ -10,7 +10,7 @@
    <div id="login">
    	  <%=
    	  if current_user.nil?
-   	  	link_to "Register", new_user_path
+   	  	link_to "Register", signup_path
    	  else
    	  	link_to "Control Panel", controlpanel_path
    	  end

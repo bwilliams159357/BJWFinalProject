@@ -7,7 +7,17 @@ class PagesController < ApplicationController
     if current_user.nil?
       redirect_to root_path
     else
-      @title = "#{current_user.email} - Control Panel - Profile"
+      if params[:priv].nil? && params[:pub].nil?
+        @title = "#{current_user.email} - Control Panel - Profile"
+      else
+        if params[:priv].nil?
+          current_user.update_attribute(:view, true)
+          @title = "Tried to Update to Public"
+        else
+          current_user.update_attribute(:view, false)
+          @title = "Tried to Update to Private"
+        end
+      end
     end
   end
   

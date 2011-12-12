@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   validates :password, :presence     => true,
                        :confirmation => true,
-                       :length       => {:within => 6..40}
+                       :length       => {:within => 5..40}
   
   validates :email, :presence   => true,
                     :format     => {:with => email_regexp},

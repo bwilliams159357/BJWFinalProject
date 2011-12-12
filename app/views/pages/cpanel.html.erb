@@ -19,5 +19,17 @@
 	<%= link_to "Game List", "/games" %><br/>
 	<%= link_to "Add Game", "/games/new" %><br/>
 	<% end %>
+	<br/>
+	<% if current_user.view %>
+		<%= form_tag(controlpanel_path, :method => "get") do %>
+	      	<%= hidden_field_tag :priv, "1"  %>
+	     	<%= submit_tag("Make Collection Private") %>
+	    <% end %>
+	<% else %>
+		<%= form_tag(controlpanel_path, :method => "get") do %>
+	      	<%= hidden_field_tag :pub, "1"  %>
+	     	<%= submit_tag("Make Collection Public") %>
+	    <% end %>
+	<% end %>
 	</center>
 </div>
