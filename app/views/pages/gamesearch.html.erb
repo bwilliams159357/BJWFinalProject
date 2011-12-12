@@ -1,7 +1,7 @@
 <table>
 	<% 
 	   search_condition = "%" + params[:q] + "%"
-       @games = Game.find(:all, :conditions => ['name iLIKE ?', search_condition])
+       @games = Game.find(:all, :conditions => ['name ILIKE ?', search_condition])
     %>
     <% if @games.any? %>
        <% @games.sort! { |a,b| a.name.downcase <=> b.name.downcase } %>
