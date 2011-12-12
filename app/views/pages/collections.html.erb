@@ -4,13 +4,14 @@
 	<%= link_to "Collections", 'collections' %>
 </div>
 <div id="cp-user-info">
-	<% @coll = Collections.find(:all, :conditions => ['user_id LIKE ?', current_user.id]) %>
+	<% @coll = Collections.find(:all, :conditions => {:user_id => current_user.id})
+	#['user_id LIKE ?', current_user.id]) %>
 	<% if @coll.any? %>
 	<% @coll.sort! { |a,b| a.name.downcase <=> b.name.downcase } %>
 	  <center>
 	  <table>
 	  <% @coll.each do |game| %>
-	  <% @game = Game.find_by_id(game.game_id) %>
+	  <% @game = Game.find(game.game_id) %>
 	  <tr>
 	  	<td width="300"><%= link_to @game.name, gpage_path(:param1 => @game) %></td>
 	  	<td><%= link_to "Remove", collections_path(:remove => @game.id) %></td>
