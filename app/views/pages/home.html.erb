@@ -1,0 +1,107 @@
+<%
+  @newest = Game.all
+  @rated = Game.all
+  @rated.sort! { |a,b| b.rating <=> a.rating }
+  @rated1 = @rated[0]
+  @rated2 = @rated[1]
+  @rated3 = @rated[2]
+  @rated4 = @rated[3]
+  @rated5 = @rated[4]
+  @newest.sort! { |a,b| b.release <=> a.release}
+  @count = 0
+  @current = Time.now.strftime("%Y/%m/%d")
+  while @newest[@count].release > @current
+  	@count = @count + 1
+  end
+  @upcount = @count
+  @newest1 = @newest[@upcount]
+  @upcount = @upcount + 1
+  @newest2 = @newest[@upcount]
+  @upcount = @upcount + 1
+  @newest3 = @newest[@upcount]
+  @upcount = @upcount + 1
+  @newest4 = @newest[@upcount]
+  @upcount = @upcount + 1
+  @newest5 = @newest[@upcount]
+  @count = @count - 1
+  @coming1 = @newest[@count]
+  @count = @count - 1
+  @coming2 = @newest[@count]
+  @count = @count - 1
+  @coming3 = @newest[@count]
+  @count = @count - 1
+  @coming4 = @newest[@count]
+  @count = @count - 1
+  @coming5 = @newest[@count]
+%>
+<div id="main-top"> Just Out!
+   <div id="main-top-first" class="main-details"><%= link_to @newest1.name, gpage_path(:param1 => @newest1) %>
+   <%= link_to image_tag(@newest1.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest1) %>
+      <div class="main-rating"><span class="rating-font" ><%= @newest1.rating %></span>/10</div>
+   </div>
+   <div id="main-top-second" class="main-details"><%= link_to @newest2.name, gpage_path(:param1 => @newest2) %>
+   <%= link_to image_tag(@newest2.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest2) %>
+      <div class="main-rating"><span class="rating-font" ><%= @newest2.rating %></span>/10</div>
+   </div>
+   <div id="main-top-third" class="main-details"><%= link_to @newest3.name, gpage_path(:param1 => @newest3) %>
+   <%= link_to image_tag(@newest3.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest3) %>
+      <div class="main-rating"><span class="rating-font" ><%= @newest3.rating %></span>/10</div>
+   </div>
+   <div id="main-top-fourth" class="main-details"><%= link_to @newest4.name, gpage_path(:param1 => @newest4) %>
+   <%= link_to image_tag(@newest4.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest4) %>
+      <div class="main-rating"><span class="rating-font" ><%= @newest4.rating %></span>/10</div>
+   </div>
+   <div id="main-top-fifth" class="main-details"><%= link_to @newest5.name, gpage_path(:param1 => @newest5) %>
+   <%= link_to image_tag(@newest5.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @newest5) %>
+      <div class="main-rating"><span class="rating-font" ><%= @newest5.rating %></span>/10</div>
+   </div>
+</div>
+<div id="main-bot"> Upcoming Releases!
+   <div id="main-bot-first" class="main-details"><%= link_to @coming1.name, gpage_path(:param1 => @coming1) %>
+   <%= link_to image_tag(@coming1.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @coming1) %>
+      <div class="main-rating"><%= @coming1.release %></div>
+   </div>
+   <div id="main-bot-second" class="main-details"><%= link_to @coming2.name, gpage_path(:param1 => @coming2) %>
+   <%= link_to image_tag(@coming2.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @coming2) %>
+      <div class="main-rating"><%= @coming2.release %></div>
+   </div>
+   <div id="main-bot-third" class="main-details"><%= link_to @coming3.name, gpage_path(:param1 => @coming3) %>
+   <%= link_to image_tag(@coming3.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @coming3) %>
+      <div class="main-rating"><%= @coming3.release %></div>
+   </div>
+   <div id="main-bot-fourth" class="main-details"><%= link_to @coming4.name, gpage_path(:param1 => @coming4) %>
+   <%= link_to image_tag(@coming4.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @coming4) %>
+      <div class="main-rating"><%= @coming4.release %></div>
+   </div>
+   <div id="main-bot-fifth" class="main-details"><%= link_to @coming5.name, gpage_path(:param1 => @coming5) %>
+   <%= link_to image_tag(@coming5.image, :alt => "no image", :class => "main-image"), gpage_path(:param1 => @coming5) %>
+      <div class="main-rating"><%= @coming5.release %></div>
+   </div>
+</div>
+<div id="sidebar">Top Rated!
+   <div id="side-first" class="sidebar-details">
+   <%= link_to image_tag(@rated1.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated1) %>
+      <div class="sidebar-rating"><span class="rating-font" ><%= @rated1.rating %></span>/10</div>
+      <div class="sidebar-name">&nbsp;<%= link_to @rated1.name, gpage_path(:param1 => @rated1) %></div>
+   </div>
+   <div id="side-second" class="sidebar-details">
+   <%= link_to image_tag(@rated2.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated2) %>
+      <div class="sidebar-rating"><span class="rating-font" ><%= @rated2.rating %></span>/10</div>
+      <div class="sidebar-name"><%= link_to @rated2.name, gpage_path(:param1 => @rated2) %></div>
+   </div>
+   <div id="side-third" class="sidebar-details">
+   <%= link_to image_tag(@rated3.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated3) %>
+      <div class="sidebar-rating"><span class="rating-font" ><%= @rated3.rating %></span>/10</div>
+      <div class="sidebar-name"><%= link_to @rated3.name, gpage_path(:param1 => @rated3) %></div>
+   </div>
+   <div id="side-fourth" class="sidebar-details">
+   <%= link_to image_tag(@rated4.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated4) %>
+      <div class="sidebar-rating"><span class="rating-font" ><%= @rated4.rating %></span>/10</div>
+      <div class="sidebar-name"><%= link_to @rated4.name, gpage_path(:param1 => @rated4) %></div>
+   </div>
+   <div id="side-fifth" class="sidebar-details">
+   <%= link_to image_tag(@rated5.image, :alt => "no image", :class => "sidebar-image"), gpage_path(:param1 => @rated5) %>
+      <div class="sidebar-rating"><span class="rating-font" ><%= @rated5.rating %></span>/10</div>
+      <div class="sidebar-name"><%= link_to @rated5.name, gpage_path(:param1 => @rated5) %></div>
+   </div>
+</div>

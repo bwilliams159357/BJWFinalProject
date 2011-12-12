@@ -1,0 +1,23 @@
+<div id="cp-sidebar">
+	<%= link_to "Profile", 'controlpanel' %><br/>
+	<%= link_to "Friends", 'friends' %><br/>
+	<%= link_to "Collections", 'collections' %>
+</div>
+<div id="cp-user-info">
+	<center><br/>
+    <%= form_tag(friends_path, :method => "get") do %>
+      <%= text_field_tag(:param1) %>
+      <%= submit_tag("Add Friend") %>
+    <% end %>
+    <table>
+    <% @friends = Friends.find(:all, :conditions => ['user_id LIKE ?', current_user.id]) %>
+    <% @friends.each do |friend| %>
+    <% @use = User.find_by_id(friend.friend_id) %>
+    	<tr>
+    	<td width="300"><%= link_to @use.email, @use %></td>
+    	<td><%= link_to "Remove", friends_path(:remove => @use.id) %></td>
+    	</tr>
+    <% end %>
+    </table>
+	</center>
+</div>

@@ -1,0 +1,23 @@
+<div id="cp-sidebar">
+	<%= link_to "Profile", 'controlpanel' %><br/>
+	<%= link_to "Friends", 'friends' %><br/>
+	<%= link_to "Collections", 'collections' %>
+</div>
+<div id="cp-user-info">
+	<center>
+	<table>
+		<tr>
+			<th colspan="2">User Profile</th>
+		</tr>
+		<tr>
+			<td>Username:</td>
+			<td><%= current_user.email %></td>
+		</tr>
+	</table>
+	<% if !current_user.nil? && current_user.admin %>
+	<%= link_to "User List", "/users" %><br/>
+	<%= link_to "Game List", "/games" %><br/>
+	<%= link_to "Add Game", "/games/new" %><br/>
+	<% end %>
+	</center>
+</div>

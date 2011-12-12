@@ -1,0 +1,324 @@
+﻿body{
+	border-style: solid;
+	margin: 0px auto 0px auto;
+	height: 1100px;
+	width: 925px;
+}
+#banner {
+	height: 200px;
+	background-color:gray;
+	position:relative;
+}
+#logo {
+	width:500px;
+	height:100px;
+	position: absolute;
+	left:300px;
+	top:30px;
+	right:0px;
+	bottom: 0px;
+	border-style: solid;
+}
+#users {
+	position:absolute;
+	top:175px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	font-size:15pt;
+}
+#search {
+	position:absolute;
+	top:auto;
+	left:75px;
+	right:0px;
+	bottom:0px;
+}
+#login {
+	position:absolute;
+	top:auto;
+	left:auto;
+	right:0;
+	bottom:0;
+}
+#inner {
+	position: relative;
+	border-style: solid;
+	height: 800px;
+	width: 925px;
+	overflow: auto;
+}
+#sidebar {
+	width: 300px;
+	height:800px;
+	position: absolute;
+	left: auto;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	font-size: 25pt;
+	font-weight: bold;
+	text-align:center;
+}
+
+#cp-sidebar {
+	width: 100px;
+	height: 800px;
+	position: relative;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	border-style: double;
+}
+
+#cp-user-info {
+	width: 825px;
+	height: 800px;
+	position: absolute;
+	font-size: 12pt;
+	left: 107px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+#game-info {
+	height: 800px;
+	width: 925px;
+	position: relative;
+	font-size: 12pt;
+}
+
+#signup {
+	height: 300px;
+	width: 400px;
+	font-size: 12pt;
+	position: absolute;
+	left: 275px;
+	top: 225px;
+	bottom: 0px;
+	right: 0px;
+}
+
+.game-page-title {
+	height: 50px;
+	width: 600px;
+	position: absolute;
+	top: 25px;
+	left: 150px;
+	bottom: 0px;
+	right: 0px;
+	font-size: 18pt;
+	overflow: auto;
+}
+
+.game-page-rating {
+	height:50px;
+	width:175px;
+	position:absolute;
+	top:250px;
+	bottom:0px;
+	left:67px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18pt;
+}
+
+.game-page-user-rating {
+	height:50px;
+	width:175px;
+	position:absolute;
+	top:275px;
+	bottom:0px;
+	left:67px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18pt;
+}
+
+.game-page-image {
+	height: 150px;
+	width: 112px;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	bottom: 0px;
+	right: 0px;
+}
+
+.game-page-description {
+	height: 150px;
+	width: 500px;
+	position: absolute;
+	top: 100px;
+	left: 315px;
+	bottom: 0px;
+	right: 0px;
+	font-size: 12pt;
+	overflow: auto;
+	border: double;
+}
+
+.game-page-reviews {
+	width: 600px;
+	height: 300px;
+	position: absolute;
+	top: 400px;
+	left: 100px;
+	right: 100px;
+	bottom 0px;
+	overflow: auto;
+	font-size: 12pt;
+	background-color: lime;
+}
+
+#footer {
+	height: 100px;
+	background-color:gray;
+	position:relative;
+	text-align:center;
+}
+#main-top {
+	height: 400px;
+	width: 625px;
+	position: relative;
+	font-size: 29pt;
+	font-weight: bold;
+	text-align:center;
+	border-style: solid;
+}
+#main-bot {
+	height: 400px;
+	width: 625px;
+	position: relative;
+	font-size: 29pt;
+	font-weight: bold;
+	text-align:center;
+	border-style: solid;
+}
+.main-details {
+	width: 125px;
+	height: 306px;
+	position: absolute;
+	top: 63px;
+	right: 0px;
+	bottom: 0px;
+	font-size: large;
+	font-weight: bold;
+	text-align: center;
+}
+#main-top-first {
+	left: 0px;
+}
+#main-top-second {
+	left: 125px;
+}
+#main-top-third {
+	left: 250px;
+}
+#main-top-fourth {
+	left: 375px;
+}
+#main-top-fifth {
+	left: 500px;
+}
+#main-bot-first {
+	left: 0px;
+}
+#main-bot-second {
+	left: 125px;
+}
+#main-bot-third {
+	left: 250px;
+}
+#main-bot-fourth {
+	left: 375px;
+}
+#main-bot-fifth {
+	left: 500px;
+}
+.main-image {
+	height:100px;
+	width:75px;
+	position: absolute;
+	top: 94px;
+	bottom: 0px;
+	left: 23px;
+	right: 0px;
+}
+.main-rating {
+	height:50px;
+	width:175px;
+	position:absolute;
+	top:244px;
+	bottom:0px;
+	left:-25px;
+	right:0px;
+	text-align: center;
+	font-weight: bold;
+}
+.sidebar-details {
+	width: 250px;
+	height: 150px;
+	position: absolute;
+	left: 25px;
+	right: 0px;
+	bottom: 0px;
+	font-size: large;
+	font-weight: bold;
+	text-align: center;
+}
+#side-first {
+	top: 50px;
+}
+#side-second {
+	top: 200px;
+}
+#side-third {
+	top: 350px;
+}
+#side-fourth {
+	top: 500px;
+}
+#side-fifth {
+	top: 650px;
+}
+.sidebar-image {
+	height:100px;
+	width:75px;
+	position: absolute;
+	top: 25px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+.sidebar-name {
+	height:100px;
+	width:175px;
+	position:absolute;
+	top:50px;
+	bottom:0px;
+	left:75px;
+	right:0px;
+	text-align:center;
+	font-size: large;
+	font-weight: bold;
+	overflow: auto;
+}
+.sidebar-rating {
+	height:50px;
+	width:175px;
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:75px;
+	right:0px;
+	text-align:center;
+	font-weight: bold;	
+}
+.rating-font {
+	font-size: 30pt;
+	font-weight: bold;
+}

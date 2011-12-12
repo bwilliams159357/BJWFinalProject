@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <%= stylesheet_link_tag 'BJWlab7.css', :media => 'screen' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+	<div id="inner">
+	<%= yield %>
+	</div>
+    <%= render 'layouts/footer' %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<table>
+	<% 
+	   search_condition = "%" + params[:q] + "%"
+       @games = Game.find(:all, :conditions => ['name LIKE ?', search_condition])
+       @games.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    %>
+    <% @games.each do |game| %>
+    <tr>
+		<td><%= link_to "#{game.name}", gpage_path(:param1 => game) %></td>
+		<td>
+			<% if !current_user.nil? %>
+			  <% @check = Collections.find(:all, :conditions => ['user_id LIKE ? AND name LIKE ?', current_user.id, game.name]) %>
+			  <% if @check.empty? %>
+			    <%= link_to "Add", collections_path(:param1 => game, :q => params[:q]), :post => true %>
+			  <% end %>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>

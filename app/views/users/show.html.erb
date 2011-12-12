@@ -1,0 +1,37 @@
+<center>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<table>
+	<%
+		@check = false
+		@friends = Friends.find(:all, :conditions => ['user_id LIKE ?', @user.id])
+		if @friends.any?
+			@friends.each do |friend|
+				if !current_user.nil? && friend.friend_id == current_user.id
+					@check = true
+				end
+			end
+		end
+	%>
+	<% if @user.view || @check %>
+		<% @coll = Collections.find(:all, :conditions => ['user_id LIKE ?', @user.id]) %>
+		<% if @coll.any? %>
+		<% @coll.sort! { |a,b| a.name.downcase <=> b.name.downcase } %>
+		  <% @coll.each do |game| %>
+		  <% @game = Game.find_by_id(game.game_id) %>
+		  <tr>
+		  	<td width="300"><%= link_to @game.name, gpage_path(:param1 => @game) %></td>
+		  </tr>
+		  <% end %>
+		<% end %>
+	<% else %>
+		<p>This user has his/her collection set to private.</p>
+	<% end %>
+</table>
+<%= link_to 'Back', users_path %>
+</center>

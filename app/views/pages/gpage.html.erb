@@ -1,0 +1,40 @@
+<div id="game-info">
+	<% if !params[:param1].nil?
+	     @game = Game.find_by_id(params[:param1])
+	   end
+	%>
+	<div class="game-page-title"><%= if !@game.nil?
+		                               @pic = @game.image
+		                               @desc = @game.description
+		                               @rating = @game.rating
+		                               @game.name
+		                             else
+		                               @pic = "none.jpg"
+		                               @desc = "No description available."
+		                               @rating = ""
+		                               "Game Title Here"	
+		                             end 
+		                         %></div>
+	<%= image_tag(@pic, :alt => "No Image", :class => "game-page-image") %>
+	<div class="game-page-description"><%= @desc %></div>
+	<div class="game-page-rating"><%= sprintf( "%0.01f", @rating ) %> <%= if !@game.nil?
+		 										     "/ 10"
+		 										     end %></div>
+	<div class="game-page-user-rating">
+		<% if !current_user.nil? && !@game.nil? %>
+			<%
+			  @ratings = Ratings.find(:all, :conditions => ['user_id LIKE ? AND game_id LIKE ?', current_user.id, @game.id])
+			  if @ratings.any?
+			%>
+			  <br/><%= " Your rating!" %><br/>
+			  <%= @ratings[0].rating %> <%= "/ 10" %>
+			<% else%>
+			  <%= form_tag(gpage_path, :method => "get") do %>
+      			<%= text_field_tag(:param2) %>
+      			<%= hidden_field_tag :game, @game.id  %>
+     			<%= submit_tag("Rate!") %>
+    		  <% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

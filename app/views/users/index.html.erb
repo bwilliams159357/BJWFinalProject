@@ -1,0 +1,25 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email unless user.admin %></td>
+    <td><%= link_to 'Show', user unless user.admin %></td>
+    <% if !current_user.nil? %>
+      <% if current_user.admin %>
+        <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete unless user.admin%></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

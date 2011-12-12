@@ -1,0 +1,26 @@
+<div id="banner">
+   <%= link_to image_tag("logo.png", :id => "logo", :alt => "Missing Logo"), :root %>
+   <div id="users"><%= link_to "Users", '/users' %></div>
+   <div id="search">
+   <%= form_tag("/search", :method => "get") do %>
+     <%= text_field_tag(:q) %>
+     <%= submit_tag("Search") %>
+   <% end %>
+   </div>
+   <div id="login">
+   	  <%=
+   	  if current_user.nil?
+   	  	link_to "Register", new_user_path
+   	  else
+   	  	link_to "Control Panel", controlpanel_path
+   	  end
+   	  %>
+      <%=
+      if current_user.nil?
+      	link_to "Sign In", signin_path
+      else
+        link_to "Sign Out", signout_path
+      end
+      %>
+   </div>
+</div>
