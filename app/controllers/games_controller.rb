@@ -3,11 +3,26 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     if !current_user.nil? && current_user.admin
-      @games = Game.all
-
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @games }
+      if params[:remove].nil?
+        @games = Game.all
+        @title = "Games Database"
+  
+        respond_to do |format|
+          format.html # index.html.erb
+          format.json { render json: @games }
+        end
+      else
+        @games = Game.all
+        @title = "Games Database"
+        @rem = Game.find(params[:remove])
+        @collections = Collections.find(:all, :conditions => {:game_id => @rem.id})
+        if @collections.any?
+          @collections.each do |coll|
+            coll.destroy
+          end
+        end
+        @rem.destroy
+        redirect_to games_path
       end
     else
       redirect_to root_path

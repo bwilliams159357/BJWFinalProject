@@ -23,7 +23,7 @@
     <td><%= game.num_ratings %></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= button_to "destroy", game, :method => :delete %> </td>
+    <td><%= link_to 'Destroy', games_path(:remove => game.id) %> </td>
   </tr>
 <% end %>
 </table>
