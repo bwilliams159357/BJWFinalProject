@@ -21,6 +21,12 @@ class GamesController < ApplicationController
             coll.destroy
           end
         end
+        @ratings = Ratings.find(:all, :conditions => {:game_id => @rem.id})
+        if @ratings.any?
+          @ratings.each do |rating|
+            rating.destroy
+          end
+        end
         @rem.destroy
         redirect_to games_path
       end
@@ -34,6 +40,7 @@ class GamesController < ApplicationController
   def show
     if !current_user.nil? && current_user.admin
       @game = Game.find(params[:id])
+      @title = "Game Information - #{@game.name}"
 
       respond_to do |format|
         format.html # show.html.erb
@@ -49,6 +56,7 @@ class GamesController < ApplicationController
   def new
     if !current_user.nil? && current_user.admin
       @game = Game.new
+      @title = "Add Game To Database"
 
       respond_to do |format|
         format.html # new.html.erb

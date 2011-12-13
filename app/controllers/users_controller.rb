@@ -2,12 +2,44 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-    @title = "User List"
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+    if params[:remove].nil?
+      @users = User.all
+      @title = "User List"
+  
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users }
+      end
+    else
+      @users = User.all
+      @title = "User List"
+      @user = User.find(params[:remove])
+      @friends = Friends.find(:all, :conditions => {:friend_id => @user.id})
+      if @friends.any?
+        @friends.each do |friend|
+          friend.destroy
+        end
+      end
+      @friends = Friends.find(:all, :conditions => {:user_id => @user.id})
+      if @friends.any?
+        @friends.each do |friend|
+          friend.destroy
+        end
+      end
+      @ratings = Ratings.find(:all, :conditions => {:user_id => @user.id})
+      if @ratings.any?
+        @ratings.each do |rating|
+          rating.destroy
+        end
+      end
+      @collections = Collections.find(:all, :conditions => {:user_id => @user.id})
+      if @collections.any?
+        @collections.each do |coll|
+          coll.destroy
+        end
+      end
+      @user.destroy
+      redirect_to users_path
     end
   end
 
