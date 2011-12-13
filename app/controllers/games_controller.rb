@@ -98,8 +98,13 @@ class GamesController < ApplicationController
   def destroy
     if !current_user.nil? && current_user.admin
       @game = Game.find(params[:id])
+      @collections = Collections.find(:all, :conditions => {:game_id => @game.id})
+      if @collections.any?
+        @collections.each do |coll|
+          coll.destroy
+        end
+      end
       @game.destroy
-
       respond_to do |format|
         format.html { redirect_to games_url }
         format.json { head :ok }

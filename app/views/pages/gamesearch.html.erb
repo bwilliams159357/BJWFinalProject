@@ -1,6 +1,7 @@
 <table>
 	<% 
 	   search_condition = "%" + params[:q] + "%"
+	   #MUST USE LIKE INSTEAD OF ILIKE FOR LOCAL CHECKS
        @games = Game.find(:all, :conditions => ['name ILIKE ?', search_condition])
     %>
     <% if @games.any? %>
