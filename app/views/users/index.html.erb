@@ -13,7 +13,7 @@
     <td><%= link_to 'Show', user unless user.admin %></td>
     <% if !current_user.nil? %>
       <% if current_user.admin %>
-        <td><%= link_to 'Destroy', users_path(:remove => user.id) %></td>
+        <td><%= link_to 'Destroy', users_path(:remove => user.id) unless user.admin %></td>
       <% end %>
     <% end %>
   </tr>
